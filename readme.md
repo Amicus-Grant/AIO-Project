@@ -70,12 +70,15 @@ Make sure you have the following installed:
 ## 📂 Project Structure
 ```
 AIO-Project/
-├── main.py           # Entry point for the project
-├── utils/            # Helper functions and modules
-├── data/             # Sample images and resources
-├── outputs/          # Generated palettes
-├── requirements.txt  # Python dependencies
-└── README.md         # Project documentation
+├── images/
+│   ├── cats-vintage-painting-persians.jpg
+│   ├── landscape-with-a-lake.jpg
+├── .gitattributes
+├── color_palettes.html
+├── requirements.txt
+├── README.md
+└── run.py
+
 ```
 
 ## 📜 License
