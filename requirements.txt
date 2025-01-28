@@ -1,0 +1,9 @@
+joblib==1.4.2
+numpy==2.2.2
+opencv-python==4.11.0.86
+packaging==24.2
+plotly==5.24.1
+scikit-learn==1.6.1
+scipy==1.15.1
+tenacity==9.0.0
+threadpoolctl==3.5.0
