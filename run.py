@@ -3,15 +3,14 @@ import numpy as np
 import plotly.graph_objects as go
 from sklearn.cluster import KMeans
 import os
-
-# Defining the paths of the uploaded images
-image_paths = ["cats-vintage-painting-persians.jpg", "landscape-with-a-lake.jpg"]
+from tkinter import Tk, filedialog
+import webbrowser
 
 # Function to convert RGB color to Hex format
 def rgb_to_hex(rgb):
     return "#{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2])
 
-# Function to process each image and extract its color palette
+# Function to process the image and extract its color palette
 def extract_color_palette(image_path, n_colors=5):
     try:
         # Load the image
@@ -34,7 +33,20 @@ def extract_color_palette(image_path, n_colors=5):
         print(f"Error processing the image {image_path}: {e}")
         return None
 
-# Process all images and store results
+# Function to allow user to select images dynamically
+def select_images():
+    root = Tk()
+    root.withdraw()  # Hide the Tkinter root window
+    file_paths = filedialog.askopenfilenames(
+        title="Select Images",
+        filetypes=[("Image Files", "*.jpg;*.jpeg;*.png;*.webp")]
+    )
+    return list(file_paths)
+
+# Let the user select images
+image_paths = select_images()
+
+# Process selected images and store results
 all_colors = {}
 for path in image_paths:
     colors = extract_color_palette(path)
@@ -79,11 +91,10 @@ fig.update_layout(
     title="Color Palettes Extracted"
 )
 
-# Save the figure as an HTML file and open in browser
+# Save the figure as an HTML file and open in the browser
 output_file = "color_palettes.html"
 fig.write_html(output_file)
 print(f"Color palettes saved to {output_file}")
 
 # Open in default browser
-import webbrowser
 webbrowser.open(f"file://{os.path.abspath(output_file)}")
