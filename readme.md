@@ -60,7 +60,7 @@ Make sure you have the following installed:
 ### Running the Project
 1. Run the main script:
    ```bash
-   python main.py
+   python run.py
    ```
 
 2. Use the GUI to select an image file or provide a folder of images to generate color palettes.
